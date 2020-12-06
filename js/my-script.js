@@ -1,9 +1,7 @@
 $(document).ready(function () {
 
     getNoInvoice();
-    getDateTime();
-
-
+    setInterval('getDateTime()',1000);
 
     $('#btnSimpan, #btnCetak, #btnAdd').css({
         cursor: 'not-allowed'
@@ -88,35 +86,7 @@ $(document).ready(function () {
     // BAGIAN KIRI
     // invoice dan customer
 
-    // mendapatkan tanggal sekarang
-    function getDateTime() {
-        var now = new Date();
-        var year = now.getFullYear();
-        var month = now.getMonth() + 1;
-        var day = now.getDate();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        var second = now.getSeconds();
-        if (month.toString().length == 1) {
-            month = '0' + month;
-        }
-        if (day.toString().length == 1) {
-            day = '0' + day;
-        }
-        if (hour.toString().length == 1) {
-            hour = '0' + hour;
-        }
-        if (minute.toString().length == 1) {
-            minute = '0' + minute;
-        }
-        if (second.toString().length == 1) {
-            second = '0' + second;
-        }
-        var dateTime = day + '/' + month + '/' + year + ' ' + hour + ':' + minute + ':' + second;
-        // return dateTime;
-        $('#td_tanggal').html(dateTime);
-        $('input[name="tanggal"]').val(dateTime);
-    }
+    
 
 
     // membuat random string untuk no invoice
@@ -358,7 +328,7 @@ $(document).ready(function () {
             }
 
             // Tambahkan ke table #tbodyTransaksi
-            let dataTrx = '<tr>' +
+            let dataTrx = '<tr id="listbarang">' +
                 '<td>' + no + '</td>' +
                 '<td class="id_barang">' + id_barang +
                 '<input value="' + id_barang + '" type="hidden" name="id_barang[]" class="id_barang">' +
@@ -558,6 +528,40 @@ $(document).ready(function () {
         });
     })
 
+    // Reset daftar belanjaannya saja
+    $(document).on('click', '#btnresetlist', function (e) {
+        e.preventDefault();
+
+        $('#input_kode').focus();
+        Swal({
+            title: 'Anda yakin?',
+            text: "Tindakan ini akan menghapus daftar belanjaan",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.value) {
+                //cek jika ada daftar belanjaan
+                if($('#listbarang').length){
+                    $('#tblTransaksi tbody tr').remove();
+                    $('#btnSimpan').prop('disabled', true);
+                    $('#btnCetak').prop('disabled', true);
+                    $('#inputBayar').val('');
+                    $('#kembalian').val('');
+                    GrandTotal();
+                    swalert('Reset Berhasil','Daftar belanjaan sudah dibersihkan', 'info');
+                } else {
+                    swalert('Tidak dapat membersihkan','Karena anda belum menginput apapun ke daftar', 'info');
+                }
+                
+            }
+        });
+        
+    });
+
 
 
     // Input format rupiah(jquery automask) 
@@ -689,5 +693,34 @@ $(document).ready(function () {
         });
     };
 
+});
 
-})
+// mendapatkan tanggal sekarang
+function getDateTime() {
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth() + 1;
+    var day = now.getDate();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    if (month.toString().length == 1) {
+        month = '0' + month;
+    }
+    if (day.toString().length == 1) {
+        day = '0' + day;
+    }
+    if (hour.toString().length == 1) {
+        hour = '0' + hour;
+    }
+    if (minute.toString().length == 1) {
+        minute = '0' + minute;
+    }
+    if (second.toString().length == 1) {
+        second = '0' + second;
+    }
+    var dateTime = day + '/' + month + '/' + year + ' ' + hour + ':' + minute + ':' + second;
+    // return dateTime;
+    $('#td_tanggal').html(dateTime);
+    $('input[name="tanggal"]').val(dateTime);
+}
