@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     getNoInvoice();
-    setInterval('getDateTime()',1000);
+    setInterval('getDateTime()', 1000);
 
     $('#btnSimpan, #btnCetak, #btnAdd').css({
         cursor: 'not-allowed'
@@ -21,14 +21,14 @@ $(document).ready(function () {
             harga: "2000",
             stok: "8",
             id_barang: "U71DDMMIIK",
-            tgl_exp: "2020-09-25"
+            tgl_exp: "2022-09-25"
         },
         {
             label: "Sandal Swalow",
             harga: "15000",
             stok: "30",
             id_barang: "WAQMOXI4EI",
-            tgl_exp: "2020-08-30"
+            tgl_exp: "2021-08-30"
         },
         {
             label: "Bejo Bintang Toedjoe",
@@ -70,15 +70,29 @@ $(document).ready(function () {
             harga: "20000",
             stok: "12",
             id_barang: "N14W4PBXXT",
-            tgl_exp: "2020-09-01"
+            tgl_exp: "2021-09-01"
         },
         {
             label: "Chocolatos",
             harga: "25000",
-            stok: "24",
+            stok: "0",
             id_barang: "T8J0C646C1",
             tgl_exp: "2020-12-05"
-        }
+        },
+        {
+            label: "Indomie Goreng",
+            harga: "2500",
+            stok: "999",
+            id_barang: "T8JGSDG61P",
+            tgl_exp: "2023-12-05",
+        },
+        {
+            label: "Tolak Angin",
+            harga: "3500",
+            stok: "40",
+            id_barang: "KJDSF051AS",
+            tgl_exp: "2022-10-25",
+        },
     ];
 
 
@@ -86,7 +100,7 @@ $(document).ready(function () {
     // BAGIAN KIRI
     // invoice dan customer
 
-    
+
 
 
     // membuat random string untuk no invoice
@@ -204,7 +218,7 @@ $(document).ready(function () {
             })
             $('#btnAdd').prop('disabled', false);
             $('#btnAdd').css({
-                cursor: 'grabbing'
+                cursor: 'pointer'
             })
         }
     });
@@ -249,18 +263,12 @@ $(document).ready(function () {
         // hasilnya akan seperti ini 20200813
         // agar bisa dibandingkan dengan waktu sekrang
 
-        let now = new Date();
-        let year = now.getFullYear();
-        let month = now.getMonth() + 1;
-        let day = now.getDate();
-        if (month.toString().length == 1) {
-            month = '0' + month;
-        }
-        if (day.toString().length == 1) {
-            day = '0' + day;
-        }
+        let sekarang = new Date();
+        let dd = String(sekarang.getDate()).padStart(2, '0');
+        let mm = String(sekarang.getMonth() + 1).padStart(2, '0'); //January is 0!
+        let yyyy = sekarang.getFullYear();
 
-        let sekarang = year + month + day;
+        sekarang = yyyy + mm + dd;
         // hasilnya akan seperti ini 20200813 sama dengan tgl_exp, tapi ini adalah waktu sekarang
 
         if (stok == 0) {
@@ -545,21 +553,21 @@ $(document).ready(function () {
         }).then((result) => {
             if (result.value) {
                 //cek jika ada daftar belanjaan
-                if($('#listbarang').length){
+                if ($('#listbarang').length) {
                     $('#tblTransaksi tbody tr').remove();
                     $('#btnSimpan').prop('disabled', true);
                     $('#btnCetak').prop('disabled', true);
                     $('#inputBayar').val('');
                     $('#kembalian').val('');
                     GrandTotal();
-                    swalert('Reset Berhasil','Daftar belanjaan sudah dibersihkan', 'info');
+                    swalert('Reset Berhasil', 'Daftar belanjaan sudah dibersihkan', 'info');
                 } else {
-                    swalert('Tidak dapat membersihkan','Karena anda belum menginput apapun ke daftar', 'info');
+                    swalert('Tidak dapat membersihkan', 'Karena anda belum menginput apapun ke daftar', 'info');
                 }
-                
+
             }
         });
-        
+
     });
 
 
