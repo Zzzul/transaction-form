@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/62506582/90958249-66a0fd80-e4bd-11ea-9738-3dc04b2734ad.png" alt="Screenshoot Waspada Corona" width="100%">
+<img src="https://user-images.githubusercontent.com/62506582/135600044-52b6f59f-8066-4115-8ee2-a5f94ffd06c8.png" alt="Screenshot" width="100%">
 
 ### Installation
 - Download atau clone di komputer kamu.
@@ -14,6 +14,4 @@ Issues and pull requests di persilahkan, jika menemukan bug/masalah jangan ragu 
 License
 ----
 MIT
-
-##### Semoga bisa bermanfaat 😊
 
