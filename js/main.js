@@ -12,7 +12,7 @@ const dataBarang = [
     {
         label: "Adem Sari",
         harga: "2000",
-        stok: "3",
+        stok: "9",
         id_barang: "XK9IQ9P1S4",
         tgl_exp: "2021-08-22"
     },
@@ -28,14 +28,14 @@ const dataBarang = [
         harga: "15000",
         stok: "30",
         id_barang: "WAQMOXI4EI",
-        tgl_exp: "2022-12-30"
+        tgl_exp: "2030-12-30"
     },
     {
         label: "Bejo Bintang Toedjoe",
         harga: "2500",
         stok: "2",
         id_barang: "K0WGPD0370",
-        tgl_exp: "2021-07-31"
+        tgl_exp: "2030-07-31"
     },
     {
         label: "Betadine",
@@ -49,7 +49,7 @@ const dataBarang = [
         harga: "5000",
         stok: "36",
         id_barang: "7ZBX9MBM6B",
-        tgl_exp: "2021-02-05"
+        tgl_exp: "2025-02-05"
     },
     {
         label: "Diapet",
@@ -70,7 +70,7 @@ const dataBarang = [
         harga: "20000",
         stok: "12",
         id_barang: "N14W4PBXXT",
-        tgl_exp: "2021-09-01"
+        tgl_exp: "2028-09-01"
     },
     {
         label: "Chocolatos",
@@ -84,14 +84,14 @@ const dataBarang = [
         harga: "2500",
         stok: "999",
         id_barang: "T8JGSDG61P",
-        tgl_exp: "2023-12-05",
+        tgl_exp: "2030-12-05",
     },
     {
         label: "Tolak Angin",
         harga: "3500",
         stok: "40",
         id_barang: "KJDSF051AS",
-        tgl_exp: "2022-10-25",
+        tgl_exp: "2024-10-25",
     },
 ]
 
@@ -644,7 +644,6 @@ function hitungKembalian() {
     let kembalian = ''
 
     if (parseInt(outStr) >= parseInt(grandtotal)) {
-
         kembalian = parseInt(outStr) - parseInt(grandtotal)
         $('#kembalian').val(formatRupiah(kembalian))
         $('input[name="bayar"]').val(outStr)
