@@ -14,7 +14,7 @@ const dataBarang = [
         harga: "2000",
         stok: "9",
         id_barang: "XK9IQ9P1S4",
-        tgl_exp: "2021-08-22"
+        tgl_exp: "2026-08-22"
     },
     {
         label: "Beng-beng",
@@ -315,7 +315,7 @@ $(document).on('click', '#btnAdd', function (e) {
             '<input value="' + subtotal + '" type="hidden" class="subtotalHidden" name="subtotal[]">' +
             '</td>' +
             '<td>' +
-            '<a href="#" id="hapusItem"><i class="far fa-window-close fa-2x text-danger"></i></a>' +
+            '<a href="#" id="hapusItem" class="btn btn-danger"><i class="fas fa-times"></i></a>' +
             '</td>' +
             '</tr>'
 

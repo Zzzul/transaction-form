@@ -1,27 +1,36 @@
 .ui-menu {
     list-style: none;
-    padding: 5px;
+    padding: 0px;
     margin: 0;
     background-color: white;
     border: solid 1px #c0c0c0;
-    width: 10rem;
-    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); */
+    width: 5rem;
+    /* box-shadow: 0 0 10px 0 #0d6efd; */
     overflow: hidden;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
 }
 
+.select2-dropdown {
+    border: solid 1px #c0c0c0 !important;
+    background-color: #c0c0c0;
+}
+
 .ui-menu-item {
-    padding-left: 5px;
+    padding-left: 15px;
     padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 .ui-menu-item:hover {
     /* bootstrap primary color */
-    background-color: #0d6efd;
-    color: white;
-    border-radius: 3px;
+    /* background-color: #0d6efd; */
+    background-color: rgba(232, 236, 239, 0.5);
+    /* color: white; */
+    /* border-radius: 3px; */
+    /* margin-left: -10px;
+    margin-right: -10px; */
 }
 
 .table>:not(:first-child) {
