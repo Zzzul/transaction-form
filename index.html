@@ -6,26 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 
-    <!-- Jquery UI -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <!-- select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/select2-bootstrap4.min.css">
-
-    <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
         integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
         crossorigin="anonymous" />
 
+    <link rel="stylesheet" href="css/main.css">
+
     <title>Transaksi Penjualan</title>
 </head>
-
-<!-- beberapa plugin/library yang dipakai menngunakan cdn pastikan komputer/laptop kamu terhubung dengan internet  -->
 
 <body class="bg-dark">
     <div class="container-fluid my-5">
@@ -61,27 +54,28 @@
                                         </div>
                                     </div>
                                     <div class="card-body px-2 py-1">
-                                        <div class="table-responsive">
-                                            <table class="table table-sm mb-0">
-                                                <tr>
-                                                    <td>No Invoice</td>
-                                                    <td><strong id="strong_no_invoice"></strong>
-                                                        <input type="hidden" name="no_invoice" value="">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Tanggal</td>
-                                                    <td id="td_tanggal">
-                                                        <input type="hidden" name="tanggal" value="">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Kasir</td>
-                                                    <td>John Doe
-                                                        <input type="hidden" name="kasir" value="1">
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <div class="row g-1">
+                                            <div class="col-md-4">No Invoice</div>
+                                            <div class="col-md-8">
+                                                <strong id="strong_no_invoice"></strong>
+                                                <input type="hidden" name="no_invoice" value="">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <hr class="mx-0 my-1" />
+                                            </div>
+                                            <div class="col-md-4">Tanggal</div>
+                                            <div class="col-md-8">
+                                                <input type="hidden" name="tanggal" value="">
+                                                <p id="td_tanggal" class="mb-0"></p>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <hr class="mx-0 my-1" />
+                                            </div>
+                                            <div class="col-md-4">Kasir</div>
+                                            <div class="col-md-8">
+                                                John Doe
+                                                <input type="hidden" name="kasir" value="1">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -94,50 +88,55 @@
                                         </div>
                                     </div>
                                     <div class="card-body px-2 py-1">
-                                        <div class="table-responsive">
-                                            <table class="table table-sm mb-1">
-                                                <tr class="mt-1">
-                                                    <td>Nama Customer</td>
-                                                    <td>
-                                                        <select class="form-control" name="customer" id="customer">
-                                                            <option value="0">Umum</option>
-                                                            <option value="1">Giorno Giovanna</option>
-                                                            <option value="2">Dio Brando</option>
-                                                            <option value="3">Jonathan Joestar</option>
-                                                            <option value="4">Tanya Von Degurechaff</option>
-                                                            <option value="5">Alphonse Elric</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>No Telepon</td>
-                                                    <td>
-                                                        <input type="text" id="no_telp" class="form-control font-italic"
-                                                            placeholder="Tidak ada" disabled
-                                                            style="cursor: not-allowed;">
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Alamat</td>
-                                                    <td>
-                                                        <textarea id="alamat" class="form-control font-italic"
-                                                            placeholder="Tidak ada" disabled
-                                                            style="cursor: not-allowed;" rows="2"></textarea>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Info lainnya</td>
-                                                    <td>
-                                                        <textarea id="info_ln" class="form-control font-italic"
-                                                            placeholder="Tidak ada" disabled
-                                                            style="cursor: not-allowed;" rows="2"></textarea>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <div class="row g-1 mt-1">
+                                            <div class="col-md-4">Nama Customer</div>
+                                            <div class="col-md-8">
+                                                <select class="form-control" name="customer" id="customer">
+                                                    <option value="0">Umum</option>
+                                                    <option value="1">Giorno Giovanna</option>
+                                                    <option value="2">Dio Brando</option>
+                                                    <option value="3">Jonathan Joestar</option>
+                                                    <option value="4">Tanya Von Degurechaff</option>
+                                                    <option value="5">Alphonse Elric</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <hr class="mx-0 my-2" />
+                                            </div>
+                                            <div class="col-md-4">
+                                                No Telepon
+                                            </div>
+                                            <div class="col-md-8">
+                                                <input type="text" id="no_telp"
+                                                    class="form-control font-italic cursor-not-allowed"
+                                                    placeholder="Tidak ada" disabled />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <hr class="mx-0 my-2" />
+                                            </div>
+                                            <div class="col-md-4">
+                                                Alamat
+                                            </div>
+                                            <div class="col-md-8">
+                                                <textarea id="alamat"
+                                                    class="cursor-not-allowed form-control font-italic"
+                                                    placeholder="Tidak ada" disabled rows="2"></textarea>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <hr class="mx-0 my-2" />
+                                            </div>
+                                            <div class="col-md-4">
+                                                Info lainnya
+                                            </div>
+                                            <div class="col-md-8">
+                                                <textarea id="info_ln"
+                                                    class="cursor-not-allowed form-control font-italic"
+                                                    placeholder="Tidak ada" disabled rows="2"></textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end of card custome -->
+                                <!-- end of card customer -->
                             </div>
                             <!-- end of col-md-3 pr-0 col-sm-12 -->
 
@@ -151,74 +150,83 @@
                                 </div>
                                 <!-- end of alert -->
 
-                                <div class="table-responsive">
-                                    <table id="tblTransaksi"
-                                        class="table table-sm table-hover table-striped table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th width="25px">No.</th>
-                                                <th width="185px">Kode Barang</Oh>
-                                                <th>Nama Barang</Oh>
-                                                <th>Harga</th>
-                                                <th width="85x">Qty</th>
-                                                <th>Subtotal</th>
-                                                <th width="60px">Aksi</th>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <p id="no_head">#</p>
-                                                </td>
-                                                <td width="282px" colspan="2">
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Kode / Nama Barang" autofocus id="input_kode"
-                                                        value="" tabindex="1">
+                                <div class="row g-1">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table id="tblTransaksi"
+                                                class="table table-sm table-hover table-striped table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="25px">No.</th>
+                                                        <th width="185px">Kode Barang</Oh>
+                                                        <th>Nama Barang</Oh>
+                                                        <th>Harga</th>
+                                                        <th width="85x">Qty</th>
+                                                        <th>Subtotal</th>
+                                                        <th width="60px">Aksi</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p id="no_head">#</p>
+                                                        </td>
+                                                        <td width="282px" colspan="2">
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Kode / Nama Barang" autofocus
+                                                                id="input_kode" value="" tabindex="1">
 
-                                                    <input type="hidden" class="form-control" id="nama_barang_hide"
-                                                        value="">
+                                                            <input type="hidden" class="form-control"
+                                                                id="nama_barang_hide" value="">
 
-                                                    <input type="hidden" class="form-control" id="id_barang_head"
-                                                        value="">
+                                                            <input type="hidden" class="form-control"
+                                                                id="id_barang_head" value="">
 
-                                                    <input type="hidden" class="form-control" id="tgl_exp" value="">
+                                                            <input type="hidden" class="form-control" id="tgl_exp"
+                                                                value="">
 
-                                                    <input type="hidden" class="form-control" id="input_kode2" value="">
+                                                            <input type="hidden" class="form-control" id="input_kode2"
+                                                                value="">
 
-                                                    <input type="hidden" class="form-control" placeholder="Stok"
-                                                        id="stok_head" disabled>
-                                                </td>
+                                                            <input type="hidden" class="form-control" placeholder="Stok"
+                                                                id="stok_head" disabled>
+                                                        </td>
 
-                                                <td width="153px">
-                                                    <input type="hidden" id="harga_head">
+                                                        <td width="153px">
+                                                            <input type="hidden" id="harga_head">
 
-                                                    <input type="text" class="form-control" placeholder="Rp(harga)"
-                                                        id="harga_head_tampil" disabled style="cursor: not-allowed;">
-                                                </td>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Rp(harga)" id="harga_head_tampil" disabled
+                                                                style="cursor: not-allowed;">
+                                                        </td>
 
-                                                <td width="83px">
-                                                    <input type="number" class="hanya-angka form-control" id="qty_head"
-                                                        placeholder="Qty" value="" min="1" tabindex="2" disabled
-                                                        style="cursor: not-allowed;">
-                                                </td>
+                                                        <td width="83px">
+                                                            <input type="number" class="hanya-angka form-control"
+                                                                id="qty_head" placeholder="Qty" value="" min="1"
+                                                                tabindex="2" disabled style="cursor: not-allowed;">
+                                                        </td>
 
-                                                <td>
-                                                    <input type="hidden" value="" id="subtotal_head">
+                                                        <td>
+                                                            <input type="hidden" value="" id="subtotal_head">
 
-                                                    <input type="text" class="form-control" placeholder="Rp(subtotal)"
-                                                        value="" id="subtotal_head_tampil" disabled
-                                                        style="cursor: not-allowed;">
-                                                </td>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Rp(subtotal)" value=""
+                                                                id="subtotal_head_tampil" disabled
+                                                                style="cursor: not-allowed;">
+                                                        </td>
 
-                                                <td width="60px">
-                                                    <button class="btn btn-primary" id="btnAdd" tabindex="3" disabled>
-                                                        <i class="fas fa-plus"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tbodyTransaksi">
+                                                        <td width="60px">
+                                                            <button class="btn btn-primary" id="btnAdd" tabindex="3"
+                                                                disabled>
+                                                                <i class="fas fa-plus"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbodyTransaksi">
 
-                                        </tbody>
-                                    </table>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="row">
@@ -234,8 +242,7 @@
 
 
                                     <div class="col-md-5">
-                                        <textarea id="catatan"
-                                            class="form-control form-control-sm font-italic mt-1 mb-3"
+                                        <textarea id="catatan" class="form-control form-control-sm mt-1 mb-3"
                                             placeholder="Catatan (jika ada)" name="catatan" rows="4"
                                             style="font-size: 16px"></textarea>
                                     </div>
@@ -243,59 +250,51 @@
                                     <div class="col-md-2"></div>
 
                                     <div class="col-md-5">
+                                        <div class="row g-1">
+                                            <div class="col-md-3">
+                                                <p class="fw-bolder text-right fs-5 mb-1">Bayar</p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="input-group input-group-lg mb-2 text-dark inputBayarDiv">
+                                                    <span class="input-group-text fw-bolder">Rp.</span>
 
-                                        <table class="mt-1">
-                                            <tr>
-                                                <td>
-                                                    <p class="fw-bolder text-right me-3">Bayar</p>
-                                                </td>
-                                                <td colspan="2">
-                                                    <div
-                                                        class="input-group input-group-lg mb-2 text-dark inputBayarDiv">
-                                                        <span class="input-group-text fw-bolder">Rp.</span>
+                                                    <input type="text" id="inputBayar" class="form-control fw-bolder"
+                                                        min="1">
 
-                                                        <input type="text" id="inputBayar"
-                                                            class="form-control fw-bolder" min="1">
-
-                                                        <input type="hidden" name="bayar">
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <p class="fw-bolder text-right me-3">Kembali</p>
-                                                </td>
-                                                <td colspan="2">
-                                                    <div class="input-group input-group-lg">
-                                                        <span class="input-group-text fw-bolder">Rp.</span>
-
-                                                        <input type="text" id="kembalian" class="form-control fw-bolder"
-                                                            aria-label="Sizing example input"
-                                                            aria-describedby="inputGroup-sizing-lg" disabled
-                                                            style="cursor: not-allowed;">
-                                                        <input type="hidden" id="kembalianHidden" name="kembalian">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                                    <input type="hidden" name="bayar">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <p class="fw-bolder text-right fs-5 mb-1">Kembali</p>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <div class="input-group input-group-lg">
+                                                    <span class="input-group-text fw-bolder">Rp.</span>
+                                                    <input type="text" id="kembalian" class="form-control fw-bolder"
+                                                        aria-label="Sizing example input"
+                                                        aria-describedby="inputGroup-sizing-lg" disabled
+                                                        style="cursor: not-allowed;">
+                                                    <input type="hidden" id="kembalianHidden" name="kembalian">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="row justify-content-end">
-                                    <div class="col-md-4 text-right mt-3">
-                                        <button class="btn btn-danger ms-1" id="btnBatal">
+                                <div class="row g-1 justify-content-end mt-1">
+                                    <div class="col-md-5 col-sm-12 text-right">
+                                        <button class="btn btn-danger ms-1 float-end mt-2" id="btnBatal">
                                             <i class="fa fa-trash me-2"></i>Batal
                                         </button>
 
-                                        <button class="btn btn-primary ms-1" id="btnSimpan" disabled
-                                            style="cursor: not-allowed;">
-                                            <i class="fa fa-save me-2"></i>Simpan
-                                        </button>
-
-                                        <button class="btn btn-success ms-1" id="btnCetak" disabled
+                                        <button class="btn btn-success ms-1 float-end mt-2" id="btnCetak" disabled
                                             style="cursor: not-allowed;">
                                             <i class="fa fa-print me-2"></i>Cetak
+                                        </button>
+
+                                        <button class="btn btn-primary ms-1 float-end mt-2" id="btnSimpan" disabled
+                                            style="cursor: not-allowed;">
+                                            <i class="fa fa-save me-2"></i>Simpan
                                         </button>
                                     </div>
                                 </div>
@@ -313,25 +312,21 @@
     </div>
     <!-- end of container -->
 
-    <!--  Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.min.js"
+        integrity="sha256-Fb0zP4jE3JHqu+IBB9YktLcSjI1Zc6J2b6gTjB0LpoM=" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- select2 -->
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <!-- jquery mask -->
-    <script src="js/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+        integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- sweetalert2 -->
-    <script src="js/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- custom script -->
     <script src="js/main.js"></script>

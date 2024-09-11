@@ -1,0 +1,37 @@
+.ui-menu {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    background-color: white;
+    border: solid 1px #c0c0c0;
+    width: 10rem;
+    /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2); */
+    overflow: hidden;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+.ui-menu-item {
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
+
+.ui-menu-item:hover {
+    /* bootstrap primary color */
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 3px;
+}
+
+.table>:not(:first-child) {
+    border-top: none;
+}
+
+.select2 {
+    width: 100% !important;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed;
+}

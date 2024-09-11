@@ -100,7 +100,7 @@ const dataBarang = [
 
 // Select2 bootstrap4 theme
 $('#customer').select2({
-    theme: 'bootstrap4',
+    theme: 'bootstrap-5',
     "language": {
         "noResults": function () {
             return "<small class='text-danger'>Tidak ditemukan data yang sesuai</small>"
@@ -295,7 +295,7 @@ $(document).on('click', '#btnAdd', function (e) {
         }
 
         // Tambahkan ke table #tbodyTransaksi
-        let dataTrx = '<tr id="listbarang">' +
+        let dataTrx = '<tr class="listbarang">' +
             '<td>' + no + '</td>' +
             '<td class="id_barang">' + id_barang +
             '<input value="' + id_barang + '" type="hidden" name="id_barang[]" class="id_barang">' +
@@ -411,10 +411,10 @@ $(document).on('click', '#btnBatal', function (e) {
 
     $('#input_kode').focus()
 
-    Swal({
+    new Swal({
         title: 'Anda yakin?',
         text: "Data penjualan akan dihapus!",
-        type: 'warning',
+        icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -434,10 +434,10 @@ $(document).on('click', '#btnresetlist', function (e) {
 
     $('#input_kode').focus()
 
-    Swal({
+    new Swal({
         title: 'Anda yakin?',
         text: "Tindakan ini akan menghapus daftar belanjaan",
-        type: 'warning',
+        icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -447,7 +447,7 @@ $(document).on('click', '#btnresetlist', function (e) {
     }).then((result) => {
         if (result.value) {
             //cek jika ada daftar belanjaan
-            if ($('#listbarang').length) {
+            if ($('.listbarang').length) {
                 $('#tblTransaksi tbody tr').remove()
                 $('#btnSimpan').prop('disabled', true)
                 $('#btnCetak').prop('disabled', true)
@@ -666,11 +666,11 @@ function hitungKembalian() {
 }
 
 // Alert menggunakan SweetAlert2
-function swAlert(title, text, type) {
-    Swal({
+function swAlert(title, text, icon) {
+    new Swal({
         title: title,
         text: text,
-        type: type
+        icon: icon
     })
 };
 
